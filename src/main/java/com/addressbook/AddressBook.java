@@ -88,5 +88,19 @@ public class AddressBook {
         }
     }
     
+    public void searchByCity(String city) {
+
+        contactList.stream()
+                .filter(contact -> contact.city.equalsIgnoreCase(city))
+                .forEach(Contact::displayContact);
+    }
+
+    public void searchByState(String state) {
+
+        contactList.stream()
+                .filter(contact -> contact.state.equalsIgnoreCase(state))
+                .forEach(Contact::displayContact);
+    }
+    
    
 }
