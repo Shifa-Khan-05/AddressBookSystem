@@ -185,5 +185,12 @@ public class AddressBook {
                 .forEach(Contact::displayContact);
     }
     
+    public void writeContactsToFile() {
+
+        AddressBookFileIOService service = new AddressBookFileIOService();
+
+        service.writeContacts(contactList);
+    }
+    
    
 }
