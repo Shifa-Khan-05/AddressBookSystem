@@ -1,61 +1,74 @@
 package com.addressbook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBook {
 
-    Contact contact;
+    ArrayList<Contact> contactList = new ArrayList<>();
 
     public void addContact(Contact contact) {
-        this.contact = contact;
+        contactList.add(contact);
     }
 
-    public void displayContact() {
-        if(contact != null)
+    public void displayContacts() {
+
+        if(contactList.isEmpty()) {
+            System.out.println("No contacts available");
+            return;
+        }
+
+        for(Contact contact : contactList) {
             contact.displayContact();
-        else
-            System.out.println("No contact available");
+            System.out.println("-------------------");
+        }
     }
 
     public void editContact(String name) {
 
         Scanner sc = new Scanner(System.in);
 
-        if(contact != null && contact.firstName.equals(name)) {
+        for(Contact contact : contactList) {
 
-            System.out.println("Enter new Address:");
-            contact.address = sc.nextLine();
+            if(contact.firstName.equals(name)) {
 
-            System.out.println("Enter new City:");
-            contact.city = sc.nextLine();
+                System.out.println("Enter new Address:");
+                contact.address = sc.nextLine();
 
-            System.out.println("Enter new State:");
-            contact.state = sc.nextLine();
+                System.out.println("Enter new City:");
+                contact.city = sc.nextLine();
 
-            System.out.println("Enter new Zip:");
-            contact.zip = sc.nextLine();
+                System.out.println("Enter new State:");
+                contact.state = sc.nextLine();
 
-            System.out.println("Enter new Phone:");
-            contact.phoneNumber = sc.nextLine();
+                System.out.println("Enter new Zip:");
+                contact.zip = sc.nextLine();
 
-            System.out.println("Enter new Email:");
-            contact.email = sc.nextLine();
+                System.out.println("Enter new Phone:");
+                contact.phoneNumber = sc.nextLine();
 
-            System.out.println("Contact Updated Successfully");
+                System.out.println("Enter new Email:");
+                contact.email = sc.nextLine();
 
-        } else {
-            System.out.println("Contact not found");
+                System.out.println("Contact updated successfully");
+                return;
+            }
         }
+
+        System.out.println("Contact not found");
     }
 
     public void deleteContact(String name) {
 
-        if(contact != null && contact.firstName.equals(name)) {
-            contact = null;
-            System.out.println("Contact deleted successfully");
+        for(Contact contact : contactList) {
+
+            if(contact.firstName.equals(name)) {
+                contactList.remove(contact);
+                System.out.println("Contact deleted successfully");
+                return;
+            }
         }
-        else {
-            System.out.println("Contact not found");
-        }
+
+        System.out.println("Contact not found");
     }
 }
