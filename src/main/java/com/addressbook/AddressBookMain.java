@@ -83,7 +83,10 @@ public class AddressBookMain {
             System.out.println("9 Count by City ");
             System.out.println("10 Count by State");
             System.out.println("11 Sort Contacts by Name");
-            System.out.println("12 Back");
+            System.out.println("12 Sort by City");
+            System.out.println("13 Sort by State");
+            System.out.println("14 Sort by Zip");
+            System.out.println("15 Back");
 
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -196,9 +199,21 @@ public class AddressBookMain {
                 case 11:
 
                     book.sortContactsByName();
-
                     break;
+                    
                 case 12:
+                    book.sortByCity();
+                    break;
+                    
+                case 13:
+                    book.sortByState();
+                    break;
+                    
+                case 14:
+                    book.sortByZip();
+                    break;
+                    
+                case 15:
                     return;
                     
                 default:
