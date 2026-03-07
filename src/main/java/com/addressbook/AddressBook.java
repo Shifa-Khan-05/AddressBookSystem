@@ -136,5 +136,23 @@ public class AddressBook {
         persons.forEach(Contact::displayContact);
     }
     
+    public void countByCity(String city) {
+
+        long count = contactList.stream()
+                .filter(contact -> contact.city.equalsIgnoreCase(city))
+                .count();
+
+        System.out.println("Number of contacts in " + city + " : " + count);
+    }
+    
+    public void countByState(String state) {
+
+        long count = contactList.stream()
+                .filter(contact -> contact.state.equalsIgnoreCase(state))
+                .count();
+
+        System.out.println("Number of contacts in " + state + " : " + count);
+    }
+    
    
 }

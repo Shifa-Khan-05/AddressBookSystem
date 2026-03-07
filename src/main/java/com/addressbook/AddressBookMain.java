@@ -80,7 +80,9 @@ public class AddressBookMain {
             System.out.println("6 Search by State");
             System.out.println("7 View Persons by City");
             System.out.println("8 View Persons by State");
-            System.out.println("9 Back");
+            System.out.println("9 Count by City ");
+            System.out.println("10 Count by State");
+            System.out.println("11 Back");
 
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -173,6 +175,24 @@ public class AddressBookMain {
                     break;
 
                 case 9:
+
+                    System.out.println("Enter city:");
+                    String cityCount = sc.nextLine();
+
+                    book.countByCity(cityCount);
+
+                    break;
+                    
+                case 10:
+
+                    System.out.println("Enter state:");
+                    String stateCount = sc.nextLine();
+
+                    book.countByState(stateCount);
+
+                    break;
+                    
+                case 11:
                     return;
                     
                 default:
