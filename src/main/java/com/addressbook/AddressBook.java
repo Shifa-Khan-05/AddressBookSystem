@@ -6,9 +6,18 @@ import java.util.Scanner;
 public class AddressBook {
 
     ArrayList<Contact> contactList = new ArrayList<>();
-
+    
     public void addContact(Contact contact) {
-        contactList.add(contact);
+
+        boolean duplicate = contactList.stream()
+                .anyMatch(c -> c.equals(contact));
+
+        if (duplicate) {
+            System.out.println("Duplicate contact not allowed");
+        } else {
+            contactList.add(contact);
+            System.out.println("Contact added successfully");
+        }
     }
 
     public void displayContacts() {
@@ -60,15 +69,24 @@ public class AddressBook {
 
     public void deleteContact(String name) {
 
+        Contact foundContact = null;
+
         for(Contact contact : contactList) {
 
             if(contact.firstName.equals(name)) {
-                contactList.remove(contact);
-                System.out.println("Contact deleted successfully");
-                return;
+                foundContact = contact;
+                break;
             }
         }
 
-        System.out.println("Contact not found");
+        if(foundContact != null) {
+            contactList.remove(foundContact);
+            System.out.println("Contact deleted successfully");
+        }
+        else {
+            System.out.println("Contact not found");
+        }
     }
+    
+   
 }
