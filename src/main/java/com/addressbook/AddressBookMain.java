@@ -78,7 +78,9 @@ public class AddressBookMain {
             System.out.println("4 Delete Contact");
             System.out.println("5 Search by City");
             System.out.println("6 Search by State");
-            System.out.println("7 Back");
+            System.out.println("7 View Persons by City");
+            System.out.println("8 View Persons by State");
+            System.out.println("9 Back");
 
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -154,10 +156,25 @@ public class AddressBookMain {
                     book.searchByState(searchState);
 
                     break;
-
                 case 7:
-                    return;
 
+                    System.out.println("Enter city:");
+                    String cityy = sc.nextLine();
+                    book.viewPersonsByCity(cityy);
+
+                    break;
+
+                case 8:
+
+                    System.out.println("Enter state:");
+                    String stat = sc.nextLine();
+                    book.viewPersonsByState(stat);
+
+                    break;
+
+                case 9:
+                    return;
+                    
                 default:
                     System.out.println("Invalid choice");
             }

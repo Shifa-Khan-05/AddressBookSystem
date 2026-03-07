@@ -2,10 +2,15 @@ package com.addressbook;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.*;
+
 
 public class AddressBook {
 
     ArrayList<Contact> contactList = new ArrayList<>();
+    
+    Map<String, List<Contact>> cityMap = new HashMap<>();
+    Map<String, List<Contact>> stateMap = new HashMap<>();
     
     public void addContact(Contact contact) {
 
@@ -14,12 +19,17 @@ public class AddressBook {
 
         if (duplicate) {
             System.out.println("Duplicate contact not allowed");
-        } else {
-            contactList.add(contact);
-            System.out.println("Contact added successfully");
+            return;
         }
-    }
 
+        contactList.add(contact);
+
+        cityMap.computeIfAbsent(contact.city, k -> new ArrayList<>()).add(contact);
+        stateMap.computeIfAbsent(contact.state, k -> new ArrayList<>()).add(contact);
+
+        System.out.println("Contact added successfully");
+    }
+    
     public void displayContacts() {
 
         if(contactList.isEmpty()) {
@@ -100,6 +110,30 @@ public class AddressBook {
         contactList.stream()
                 .filter(contact -> contact.state.equalsIgnoreCase(state))
                 .forEach(Contact::displayContact);
+    }
+    
+    public void viewPersonsByCity(String city) {
+
+        List<Contact> persons = cityMap.get(city);
+
+        if (persons == null || persons.isEmpty()) {
+            System.out.println("No persons found in this city");
+            return;
+        }
+
+        persons.forEach(Contact::displayContact);
+    }
+    
+    public void viewPersonsByState(String state) {
+
+        List<Contact> persons = stateMap.get(state);
+
+        if (persons == null || persons.isEmpty()) {
+            System.out.println("No persons found in this state");
+            return;
+        }
+
+        persons.forEach(Contact::displayContact);
     }
     
    
