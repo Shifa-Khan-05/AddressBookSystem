@@ -10,36 +10,45 @@ public class AddressBookMain {
 
         System.out.println("Welcome to Address Book Program");
 
-        System.out.print("Enter First Name: ");
+        System.out.println("Enter First Name:");
         String firstName = sc.nextLine();
 
-        System.out.print("Enter Last Name: ");
+        System.out.println("Enter Last Name:");
         String lastName = sc.nextLine();
 
-        System.out.print("Enter Address: ");
+        System.out.println("Enter Address:");
         String address = sc.nextLine();
 
-        System.out.print("Enter City: ");
+        System.out.println("Enter City:");
         String city = sc.nextLine();
 
-        System.out.print("Enter State: ");
+        System.out.println("Enter State:");
         String state = sc.nextLine();
 
-        System.out.print("Enter Zip: ");
+        System.out.println("Enter Zip:");
         String zip = sc.nextLine();
 
-        System.out.print("Enter Phone Number: ");
+        System.out.println("Enter Phone:");
         String phone = sc.nextLine();
 
-        System.out.print("Enter Email: ");
+        System.out.println("Enter Email:");
         String email = sc.nextLine();
 
-        Contact contact = new Contact(firstName, lastName, address, city, state, zip, phone, email);
+        Contact contact = new Contact(firstName,lastName,address,city,state,zip,phone,email);
 
         AddressBook addressBook = new AddressBook();
+
         addressBook.addContact(contact);
 
         System.out.println("\nContact Details:");
+        addressBook.displayContact();
+
+        System.out.println("\nEnter the first name to edit contact:");
+        String name = sc.nextLine();
+
+        addressBook.editContact(name);
+
+        System.out.println("\nUpdated Contact:");
         addressBook.displayContact();
     }
 }
