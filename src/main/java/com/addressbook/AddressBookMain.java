@@ -43,12 +43,12 @@ public class AddressBookMain {
         System.out.println("\nContact Details:");
         addressBook.displayContact();
 
-        System.out.println("\nEnter the first name to edit contact:");
+        System.out.println("\nEnter the first name to delete contact:");
         String name = sc.nextLine();
 
-        addressBook.editContact(name);
+        addressBook.deleteContact(name);
 
-        System.out.println("\nUpdated Contact:");
+        System.out.println("\nRemaining Contact:");
         addressBook.displayContact();
     }
 }

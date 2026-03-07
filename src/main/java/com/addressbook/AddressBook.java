@@ -11,14 +11,17 @@ public class AddressBook {
     }
 
     public void displayContact() {
-        contact.displayContact();
+        if(contact != null)
+            contact.displayContact();
+        else
+            System.out.println("No contact available");
     }
 
     public void editContact(String name) {
 
         Scanner sc = new Scanner(System.in);
 
-        if(contact.firstName.equals(name)) {
+        if(contact != null && contact.firstName.equals(name)) {
 
             System.out.println("Enter new Address:");
             contact.address = sc.nextLine();
@@ -41,6 +44,17 @@ public class AddressBook {
             System.out.println("Contact Updated Successfully");
 
         } else {
+            System.out.println("Contact not found");
+        }
+    }
+
+    public void deleteContact(String name) {
+
+        if(contact != null && contact.firstName.equals(name)) {
+            contact = null;
+            System.out.println("Contact deleted successfully");
+        }
+        else {
             System.out.println("Contact not found");
         }
     }
