@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
+import java.util.*;
+
 
 public class AddressBookDBService {
 
@@ -266,6 +268,35 @@ public class AddressBookDBService {
 
             System.out.println("Database error: " + e.getMessage());
         }
+    }
+    
+    
+    
+    public void addMultipleContacts(List<Contact> contacts) {
+
+        long startTime = System.currentTimeMillis();
+
+        contacts.forEach(contact -> {
+
+            Thread thread = new Thread(() -> {
+
+                addContactToDatabase(contact);
+
+            });
+
+            thread.start();
+
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("Time taken to add contacts: " + (endTime - startTime) + " ms");
     }
 
 

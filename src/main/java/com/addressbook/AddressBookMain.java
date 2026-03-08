@@ -1,6 +1,8 @@
 package com.addressbook;
 
 import java.util.Scanner;
+import java.util.*;
+
 
 public class AddressBookMain {
 
@@ -95,7 +97,8 @@ public class AddressBookMain {
             System.out.println("21 Count Contacts by City (Database) ");
             System.out.println("22 Count Contacts by State (Database)");
             System.out.println("23 Add Contact to Database");
-            System.out.println("24 Back");
+            System.out.println("24 Add Multiple Contacts Using Threads");
+            System.out.println("25 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -307,7 +310,22 @@ public class AddressBookMain {
 
                     break;
                     
+                    
                 case 24:
+
+                    List<Contact> contacts = new ArrayList<>();
+
+                    contacts.add(new Contact("Shifa", "Khan", "Bhopal", "Bhopal", "MP", "462001", "9876543210", "shifa@gmail.com"));
+
+                    contacts.add(new Contact("Rahul", "Sharma", "Delhi", "Delhi", "Delhi", "110001", "9876540000", "rahul@gmail.com"));
+
+                    contacts.add(new Contact("Aman", "Verma", "Indore", "Indore", "MP", "452001", "9876541111", "aman@gmail.com"));
+
+                    book.addMultipleContactsToDB(contacts);
+
+                    break;
+                    
+                case 25:
                     return;
 
                 default:

@@ -248,4 +248,11 @@ public class AddressBook {
 
         service.addContactToDatabase(contact);
     }
+    
+    public void addMultipleContactsToDB(List<Contact> contacts) {
+
+        AddressBookDBService service = new AddressBookDBService();
+
+        service.addMultipleContacts(contacts);
+    }
 }
