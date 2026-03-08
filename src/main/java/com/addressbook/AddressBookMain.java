@@ -92,7 +92,9 @@ public class AddressBookMain {
             System.out.println("18 Read Contacts from Database");
             System.out.println("19 Update Contact in Database");
             System.out.println("20 Retrieve Contacts by Date Range");
-            System.out.println("21 Back");
+            System.out.println("21 Count Contacts by City (Database) ");
+            System.out.println("22 Count Contacts by State (Database)");
+            System.out.println("23 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -260,6 +262,18 @@ public class AddressBookMain {
                     break;
                     
                 case 21:
+
+                    book.countContactsByCityDB();
+
+                    break;
+                    
+                case 22:
+
+                    book.countContactsByStateDB();
+
+                    break;
+                    
+                case 23:
                     return;
 
                 default:

@@ -228,5 +228,17 @@ public class AddressBook {
         service.readContactsByDateRange(start, end);
     }
     
-   
+    public void countContactsByCityDB() {
+
+        AddressBookDBService service = new AddressBookDBService();
+
+        service.countContactsByCity();
+    }
+    
+    public void countContactsByStateDB() {
+
+        AddressBookDBService service = new AddressBookDBService();
+
+        service.countContactsByState();
+    }
 }

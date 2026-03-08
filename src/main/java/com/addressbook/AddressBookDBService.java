@@ -173,4 +173,65 @@ public class AddressBookDBService {
             System.out.println("Database error: " + e.getMessage());
         }
     }
+    
+    
+    public void countContactsByCity() {
+
+        try {
+
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            createTable(connection);
+
+            String sql = "SELECT city, COUNT(*) AS total FROM contact GROUP BY city";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+
+                System.out.println(
+                        rs.getString("city") + " : " + rs.getInt("total")
+                );
+            }
+
+            connection.close();
+
+        } catch(Exception e) {
+
+            System.out.println("Database error: " + e.getMessage());
+        }
+    }
+
+    public void countContactsByState() {
+
+        try {
+
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            createTable(connection);
+
+            String sql = "SELECT state, COUNT(*) AS total FROM contact GROUP BY state";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()) {
+
+                System.out.println(
+                        rs.getString("state") + " : " + rs.getInt("total")
+                );
+            }
+
+            connection.close();
+
+        } catch(Exception e) {
+
+            System.out.println("Database error: " + e.getMessage());
+        }
+    }
+
+
 }
