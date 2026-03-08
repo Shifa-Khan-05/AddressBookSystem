@@ -241,4 +241,11 @@ public class AddressBook {
 
         service.countContactsByState();
     }
+    
+    public void addContactToDatabase(Contact contact) {
+
+        AddressBookDBService service = new AddressBookDBService();
+
+        service.addContactToDatabase(contact);
+    }
 }

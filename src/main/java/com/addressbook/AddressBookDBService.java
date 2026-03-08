@@ -232,6 +232,41 @@ public class AddressBookDBService {
             System.out.println("Database error: " + e.getMessage());
         }
     }
+    
+    
+    
+    public void addContactToDatabase(Contact contact) {
+
+        try {
+
+            Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+
+            createTable(connection);
+
+            String sql = "INSERT INTO contact(first_name,last_name,address,city,state,zip,phone,email,date_added) VALUES(?,?,?,?,?,?,?,?,CURRENT_DATE)";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setString(1, contact.firstName);
+            ps.setString(2, contact.lastName);
+            ps.setString(3, contact.address);
+            ps.setString(4, contact.city);
+            ps.setString(5, contact.state);
+            ps.setString(6, contact.zip);
+            ps.setString(7, contact.phoneNumber);
+            ps.setString(8, contact.email);
+
+            ps.executeUpdate();
+
+            connection.close();
+
+            System.out.println("Contact added to database successfully");
+
+        } catch(Exception e) {
+
+            System.out.println("Database error: " + e.getMessage());
+        }
+    }
 
 
 }

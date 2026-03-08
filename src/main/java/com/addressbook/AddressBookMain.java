@@ -94,7 +94,8 @@ public class AddressBookMain {
             System.out.println("20 Retrieve Contacts by Date Range");
             System.out.println("21 Count Contacts by City (Database) ");
             System.out.println("22 Count Contacts by State (Database)");
-            System.out.println("23 Back");
+            System.out.println("23 Add Contact to Database");
+            System.out.println("24 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -273,7 +274,40 @@ public class AddressBookMain {
 
                     break;
                     
+                    
                 case 23:
+
+                    System.out.println("Enter First Name:");
+                    String firstname = sc.nextLine();
+
+                    System.out.println("Enter Last Name:");
+                    String lastname = sc.nextLine();
+
+                    System.out.println("Enter Address:");
+                    String addresss = sc.nextLine();
+
+                    System.out.println("Enter City:");
+                    String citys = sc.nextLine();
+
+                    System.out.println("Enter State:");
+                    String statee = sc.nextLine();
+
+                    System.out.println("Enter Zip:");
+                    String zipp = sc.nextLine();
+
+                    System.out.println("Enter Phone:");
+                    String phonee = sc.nextLine();
+
+                    System.out.println("Enter Email:");
+                    String emaill = sc.nextLine();
+
+                    Contact contactt = new Contact(firstname, lastname, addresss, citys, statee, zipp, phonee, emaill);
+
+                    book.addContactToDatabase(contactt);
+
+                    break;
+                    
+                case 24:
                     return;
 
                 default:
