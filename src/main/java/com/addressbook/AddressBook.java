@@ -255,4 +255,11 @@ public class AddressBook {
 
         service.addMultipleContacts(contacts);
     }
+    
+    public void readContactsFromServer() {
+
+        AddressBookRestService service = new AddressBookRestService();
+
+        service.readContacts();
+    }
 }

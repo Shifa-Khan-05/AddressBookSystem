@@ -98,7 +98,8 @@ public class AddressBookMain {
             System.out.println("22 Count Contacts by State (Database)");
             System.out.println("23 Add Contact to Database");
             System.out.println("24 Add Multiple Contacts Using Threads");
-            System.out.println("25 Back");
+            System.out.println("25 Read Entries from JSON Server");
+            System.out.println("26 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -326,6 +327,12 @@ public class AddressBookMain {
                     break;
                     
                 case 25:
+
+                    book.readContactsFromServer();
+
+                    break;
+                    
+                case 26:
                     return;
 
                 default:
