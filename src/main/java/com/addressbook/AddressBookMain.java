@@ -90,7 +90,9 @@ public class AddressBookMain {
             System.out.println("16 Write Contacts to CSV ");
             System.out.println("17 Write Contacts to JSON");
             System.out.println("18 Read Contacts from Database");
-            System.out.println("19 Back");
+            System.out.println("19 Update Contact in Database");
+            System.out.println("20 Retrieve Contacts by Date Range");
+            System.out.println("21 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -234,6 +236,30 @@ public class AddressBookMain {
                     break;
 
                 case 19:
+
+                    System.out.println("Enter First Name:");
+                    String name = sc.nextLine();
+
+                    System.out.println("Enter New City:");
+                    String cityi = sc.nextLine();
+
+                    book.updateContactInDB(name, cityi);
+
+                    break;
+                    
+                case 20:
+
+                    System.out.println("Enter Start Date (YYYY-MM-DD):");
+                    String startDate = sc.nextLine();
+
+                    System.out.println("Enter End Date (YYYY-MM-DD):");
+                    String endDate = sc.nextLine();
+
+                    book.readContactsByDateRange(startDate, endDate);
+
+                    break;
+                    
+                case 21:
                     return;
 
                 default:

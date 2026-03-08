@@ -3,7 +3,10 @@ package com.addressbook;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.*;
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class AddressBook {
 
@@ -26,6 +29,10 @@ public class AddressBook {
 
         cityMap.computeIfAbsent(contact.city, k -> new ArrayList<>()).add(contact);
         stateMap.computeIfAbsent(contact.state, k -> new ArrayList<>()).add(contact);
+
+        // Insert into database
+        AddressBookDBService service = new AddressBookDBService();
+        service.addContactToDB(contact);
 
         System.out.println("Contact added successfully");
     }
@@ -208,5 +215,18 @@ public class AddressBook {
     	AddressBookDBService service = new AddressBookDBService();
         service.readContacts();
     }
+    
+    public void updateContactInDB(String firstName, String city) {
+        AddressBookDBService service = new AddressBookDBService();
+        service.updateContact(firstName, city);
+    }
+   
+    public void readContactsByDateRange(String start, String end) {
+
+        AddressBookDBService service = new AddressBookDBService();
+
+        service.readContactsByDateRange(start, end);
+    }
+    
    
 }
