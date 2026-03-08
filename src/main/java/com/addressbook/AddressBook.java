@@ -199,5 +199,10 @@ public class AddressBook {
         service.writeContactsToCSV(contactList);
     }
     
+    public void writeContactsToJSON() {
+        AddressBookJSONService service = new AddressBookJSONService();
+        service.writeContactsToJSON(contactList);
+    }
+    
    
 }
