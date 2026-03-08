@@ -192,5 +192,12 @@ public class AddressBook {
         service.writeContacts(contactList);
     }
     
+    public void writeContactsToCSV() {
+
+        AddressBookCSVService service = new AddressBookCSVService();
+
+        service.writeContactsToCSV(contactList);
+    }
+    
    
 }

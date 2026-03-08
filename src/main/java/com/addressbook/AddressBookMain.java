@@ -219,6 +219,10 @@ public class AddressBookMain {
                     break;
                     
                 case 16:
+                    book.writeContactsToCSV();
+                    break;
+                    
+                case 17:
                     return;
                     
                 default:
