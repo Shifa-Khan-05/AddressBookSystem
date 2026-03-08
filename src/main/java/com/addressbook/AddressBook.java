@@ -204,5 +204,9 @@ public class AddressBook {
         service.writeContactsToJSON(contactList);
     }
     
+    public void readContactsFromDB() {
+    	AddressBookDBService service = new AddressBookDBService();
+        service.readContacts();
+    }
    
 }

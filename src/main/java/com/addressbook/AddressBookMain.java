@@ -89,7 +89,8 @@ public class AddressBookMain {
             System.out.println("15 Write Contacts to File");
             System.out.println("16 Write Contacts to CSV ");
             System.out.println("17 Write Contacts to JSON");
-            System.out.println("18 Back");
+            System.out.println("18 Read Contacts from Database");
+            System.out.println("19 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -227,8 +228,12 @@ public class AddressBookMain {
                 case 17:
                     book.writeContactsToJSON();
                     break;
-
+                    
                 case 18:
+                    book.readContactsFromDB();
+                    break;
+
+                case 19:
                     return;
 
                 default:
