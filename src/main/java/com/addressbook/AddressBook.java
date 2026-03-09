@@ -262,4 +262,12 @@ public class AddressBook {
 
         service.readContacts();
     }
+    public void addContactsToJSONServerAsync(List<Contact> contacts) {
+
+        AddressBookRestService service = new AddressBookRestService();
+
+        service.addContactsAsync(contacts);
+    }
+    
+    
 }

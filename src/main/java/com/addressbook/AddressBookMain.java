@@ -99,7 +99,8 @@ public class AddressBookMain {
             System.out.println("23 Add Contact to Database");
             System.out.println("24 Add Multiple Contacts Using Threads");
             System.out.println("25 Read Entries from JSON Server");
-            System.out.println("26 Back");
+            System.out.println("26 Add Multiple Entries to JSON Server (Async)");
+            System.out.println("27 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -333,6 +334,23 @@ public class AddressBookMain {
                     break;
                     
                 case 26:
+
+                    List<Contact> contactss = new ArrayList<>();
+
+                    contactss.add(new Contact(
+                            "Shifa","Khan","Bhopal","Bhopal","MP","462001","9876543210","shifa@gmail.com"));
+
+                    contactss.add(new Contact(
+                            "Rahul","Sharma","Delhi","Delhi","Delhi","110001","9876540000","rahul@gmail.com"));
+
+                    contactss.add(new Contact(
+                            "Aman","Verma","Indore","Indore","MP","452001","9876541111","aman@gmail.com"));
+
+                    book.addContactsToJSONServerAsync(contactss);
+
+                    break;
+                    
+                case 27:
                     return;
 
                 default:
