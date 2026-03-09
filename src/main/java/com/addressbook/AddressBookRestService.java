@@ -49,7 +49,28 @@ public class AddressBookRestService {
         System.out.println("Main thread finished in: " + (endTime - startTime) + " ms");
     }
     
-    
+    public void updateContactAsync(int id, Contact contact) {
+
+        new Thread(() -> {
+
+            try {
+
+                RestTemplate restTemplate = new RestTemplate();
+
+                String url = "https://jsonplaceholder.typicode.com/users/" + id;
+
+                restTemplate.put(url, contact);
+
+                System.out.println("Thread: " + Thread.currentThread().getName());
+                System.out.println("Contact updated successfully on JSON server");
+
+            } catch (Exception e) {
+
+                System.out.println("Error updating contact: " + e.getMessage());
+            }
+
+        }).start();
+    }
     
     
 

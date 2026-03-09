@@ -100,7 +100,8 @@ public class AddressBookMain {
             System.out.println("24 Add Multiple Contacts Using Threads");
             System.out.println("25 Read Entries from JSON Server");
             System.out.println("26 Add Multiple Entries to JSON Server (Async)");
-            System.out.println("27 Back");
+            System.out.println("27 Update Entry in JSON Server");
+            System.out.println("28 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -350,7 +351,44 @@ public class AddressBookMain {
 
                     break;
                     
+                    
                 case 27:
+
+                    System.out.println("Enter Contact ID to update:");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("Enter First Name:");
+                    String firstNamee = sc.nextLine();
+
+                    System.out.println("Enter Last Name:");
+                    String lastNamee = sc.nextLine();
+
+                    System.out.println("Enter Address:");
+                    String addres = sc.nextLine();
+
+                    System.out.println("Enter City:");
+                    String citi = sc.nextLine();
+
+                    System.out.println("Enter State:");
+                    String stateee = sc.nextLine();
+
+                    System.out.println("Enter Zip:");
+                    String ziip = sc.nextLine();
+
+                    System.out.println("Enter Phone:");
+                    String phonne = sc.nextLine();
+
+                    System.out.println("Enter Email:");
+                    String emaiil = sc.nextLine();
+
+                    Contact contacct = new Contact(firstNamee,lastNamee,addres,citi,stateee,ziip,phonne,emaiil);
+
+                    book.updateContactOnServerAsync(id, contacct);
+
+                    break;
+                    
+                case 28:
                     return;
 
                 default:

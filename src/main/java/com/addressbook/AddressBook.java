@@ -269,5 +269,10 @@ public class AddressBook {
         service.addContactsAsync(contacts);
     }
     
-    
+    public void updateContactOnServerAsync(int id, Contact contact) {
+
+        AddressBookRestService service = new AddressBookRestService();
+
+        service.updateContactAsync(id, contact);
+    }
 }
