@@ -73,5 +73,29 @@ public class AddressBookRestService {
     }
     
     
+    public void deleteContactAsync(int id) {
+
+        new Thread(() -> {
+
+            try {
+
+                RestTemplate restTemplate = new RestTemplate();
+
+                String url = "https://jsonplaceholder.typicode.com/users/" + id;
+
+                restTemplate.delete(url);
+
+                System.out.println("Thread: " + Thread.currentThread().getName());
+                System.out.println("Contact deleted successfully from JSON server");
+
+            } catch (Exception e) {
+
+                System.out.println("Error deleting contact: " + e.getMessage());
+            }
+
+        }).start();
+    }
+    
+    
 
 }

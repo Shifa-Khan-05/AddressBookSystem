@@ -101,7 +101,8 @@ public class AddressBookMain {
             System.out.println("25 Read Entries from JSON Server");
             System.out.println("26 Add Multiple Entries to JSON Server (Async)");
             System.out.println("27 Update Entry in JSON Server");
-            System.out.println("28 Back");
+            System.out.println("28 Delete Entry from JSON Server");
+            System.out.println("29 Back");
             
             System.out.print("Enter choice: ");
             int choice = sc.nextInt();
@@ -389,6 +390,16 @@ public class AddressBookMain {
                     break;
                     
                 case 28:
+
+                    System.out.println("Enter Contact ID to delete:");
+                    int idd = sc.nextInt();
+                    sc.nextLine();
+
+                    book.deleteContactFromServerAsync(idd);
+
+                    break;
+                    
+                case 29:
                     return;
 
                 default:

@@ -275,4 +275,12 @@ public class AddressBook {
 
         service.updateContactAsync(id, contact);
     }
+    
+    
+    public void deleteContactFromServerAsync(int id) {
+
+        AddressBookRestService service = new AddressBookRestService();
+
+        service.deleteContactAsync(id);
+    }
 }
